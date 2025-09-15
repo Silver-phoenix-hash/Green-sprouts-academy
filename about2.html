@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Green Sprouts Academy</title>
+    <link rel="icon" type="imagejpg" href="image/GSA LOGO.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #64b000;
+            --secondary: #556B2F;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gold: #FFD700;
+            --lime: #32CD32;
+        }
+        
+        body {
+            background-color: var(--gold);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn:hover {
+            background: #e0940d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--secondary);
+            padding-top: 20px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.9));
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Content Section */
+        .about-content {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .about-text {
+            margin-bottom: 40px;
+        }
+        
+        .about-text h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 250px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f0f7ff;
+            padding: 40px 0;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .services h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        /* Staff Section */
+        .staff {
+            margin: 50px 0;
+        }
+        
+        .staff-profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+        
+        .staff-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .staff-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .staff-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .staff-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .staff-info p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .staff-info .position {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column li {
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-hero {
+                height: 40vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .staff-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-hero {
+                height: 35vh;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">        
+            <div class="logo">
+                <img src="image/GSA LOGO.jpg" alt="Green Sprouts Logo">
+                <h1>GREEN SPROUTS <span>ACADEMY</span></h1>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index3.html">Home</a></li>
+                    <li><a href="about2.html" class="active">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions 2.html">Admissions</a></li>
+                    <li><a href="update.html">News</a></li>
+                    <li><a href="contact us.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About Green Sprouts Academy</h1>
+            <p>Discover our legacy of educational excellence since 2021</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Who We Are Section -->
+        <section class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">Who We Are</h2>
+                <p>Green Sprouts Academy is a premier educational institution dedicated to fostering intellectual growth, creativity, and character development in a diverse community of learners. Our holistic approach to education prepares students for success in college and beyond.</p>
+                <p>With state-of-the-art facilities and a dedicated faculty, we provide an environment where students can explore their passions, develop critical thinking skills, and become responsible global citizens.</p>
+                <p>Founded in 2021, we've been at the forefront of innovative education for over four years, adapting to the changing needs of our students while maintaining our core values of excellence, integrity, and community.</p>
+            </div>
+
+            <!-- Gallery Section -->
+            <h2 class="section-title">Our Campus Life</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image/art2.jpg" alt="art Class">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/mnf.jpg" alt="Students in Library">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/Collage2.jpg" alt="Art Class">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/c4.jpg" alt="Sports Day">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/Collage5.jpg" alt="Music Class">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/Collage6.jpg" alt="Outdoor Activity">
+                </div>
+            </div>
+
+            <!-- Vision Section -->
+            <div class="about-text">
+                <h2 class="section-title">Our Vision & Mission</h2>
+                <p>         At Green Sprouts Academy, we envision a world where every student develops the knowledge, skills, and character to make a positive impact in their community and the world.</p>
+                <p>     Our mission is to provide a nurturing environment where students achieve academic excellence while developing character and leadership skills. We are committed to creating lifelong learners who are critical thinkers, problem solvers, and compassionate leaders.</p>
+            </div>
+
+            <!-- Services Section -->
+            <div class="services">
+                <h2 class="section-title">Services We Offer</h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <i class="fas fa-baby"></i>
+                        <h3>Day Care/Cache</h3>
+                        <p>Safe, nurturing environment for our youngest learners with play-based development</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-pencil-alt"></i>
+                        <h3>Nursery School</h3>
+                        <p>Foundational learning experiences focusing on literacy, numeracy, and social skills</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Primary School</h3>
+                        <p>Comprehensive curriculum that challenges students academically while providing support</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Secondary School</h3>
+                        <p>Advanced programs preparing students for university and future careers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Section -->
+            <div class="staff">
+                <h2 class="section-title">Our Leadership</h2>
+                <div class="staff-profile">
+                    <div class="staff-image">
+                        <img src="image/Collage3.jpg" alt="Mrs. Silifat Sulaiman">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Mrs. Silifat Sulaiman</h3>
+                        <span class="position">Proprietress and Director</span>
+                        <p>With over 25 years of experience in education, Mrs. Sulaiman founded Green Sprouts Academy with a vision to create an institution that balances academic rigor with character development. Her leadership has guided the school to become one of the most respected educational institutions in the region.</p>
+                        <p>Mrs. Sulaiman holds a Master's degree in Educational Leadership and is passionate about creating inclusive learning environments where every child can thrive. Under her guidance, GSA has developed innovative programs that have been recognized at both national and international levels.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About GSA</h3>
+                    <p>Green Sprouts Academy is committed to providing quality education that develops well-rounded individuals prepared for the challenges of tomorrow.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100077998387276"><i class="fab fa-facebook-f"></i></a>
+                        <a href="greensprouts academykaduna@gmail.com"><i    class="fab fa-google-wallet"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index3.html">Home</a></li>
+                        <li><a href="about2.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions 2.html">Admissions</a></li>
+                        <li><a href="update.html">News & Events</a></li>
+                        <li><a href="contact us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Day Care/Cache</a></li>
+                        <li><a href="#">Nursery School</a></li>
+                        <li><a href="#">Primary School</a></li>
+                        <li><a href="#">Secondary School</a></li>
+                        <li><a href="#">Summer Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Road, Kaduna, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 8080031113</li>
+                        <li><i class="fas fa-envelope"></i> info@greensproutsacademy.edu.ng</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Sprouts Academy, Kaduna. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+        
+        // Highlight current page
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
