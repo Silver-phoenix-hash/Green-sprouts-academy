@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Sprouts Academy | Excellence in Education</title>
+    <link rel="icon" type="image/jpg" href="image/GSA LOGO.jpg"> <!-- fixed the image path-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #00B050;
+            --secondary: #556B2F;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gold: #FFD700;
+            --lime: #32CD32;
+        }
+        
+        body {
+            background-color: var(--gold);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn:hover {
+            background: #e0940d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--secondary);
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Academics Section */
+        .academics {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+        }
+        
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .program-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .news-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white;
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .news-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .news-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .news-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .news-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Ticker Styles */
+        .ticker-section {
+            padding: 20px 0;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .ticker-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ticker-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .ticker {
+            height: auto;
+            max-height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        
+        .ticker ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            animation: scrollNews 15s linear infinite;
+        }
+        
+        .ticker li {
+            padding: 10px;
+            white-space: normal;
+            overflow: hidden;
+        }
+        
+        .ticker a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ticker a:hover {
+            color: var(--gold);
+        }
+        
+        @keyframes scrollNews {
+            0% { top: 0; }
+            100% { top: calc(-100% * var(--item-count)); }
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(to right, var(--primary), #2a6178);
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .testimonial {
+            background: rgba(10, 212, 71, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(85, 107, 47, 0.9), rgba(85, 107, 47, 0.9)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Focus Areas Section */
+        .focus-areas {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+        }
+        
+        .focus-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .focus-areas h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .focus-areas ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .focus-areas li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .focus-areas li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .focus-areas p {
+            margin-top: 30px;
+            font-style: italic;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column li {
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .news-container aside {
+                margin-top: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 60vh;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            
+            .ticker-section .ticker {
+                height: auto;
+                max-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">                
+            <div class="logo">
+                <img src="image/GSA LOGO.jpg" alt="Green Sprouts Logo"><!-- fixed the image path-->
+                <h1>GREEN SPROUTS <span>ACADEMY</span></h1>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="about2.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions 2.html">Admissions</a></li>
+                    <li><a href="update.html">News</a></li>          
+                    <li><a href="contact us.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>THE REAL NAME IN ACADEMIC EXCELLENCE</h1>
+            <h2>Shaping Future Leaders Through Excellence</h2>
+            <p>Green Sprouts Academy provides a nurturing environment where students achieve academic excellence while developing character and leadership skills.</p>
+            <div class="hero-btns">
+                <a href="admissions 2.html" class="btn">Apply Now</a>
+                <a href="about2.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Our School</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>A Legacy of Excellence Since 2021</h3>
+                    <p>Green Sprouts Academy is a premier educational institution dedicated to fostering intellectual growth, creativity, and character development in a diverse community of learners. Our holistic approach to education prepares students for success in college and beyond.</p>
+                    <p>With state-of-the-art facilities and a dedicated faculty, we provide an environment where students can explore their passions, develop critical thinking skills, and become responsible global citizens.</p>
+                    <a href="about2.html" class="btn">Discover More</a>
+                </div>
+                <div class="about-image">
+                    <img src="image/GSA LOGO.jpg" alt="school campus"><!-- fixed the image path-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section class="academics">
+        <div class="container">
+            <h2 class="section-title">Academic Programs</h2>
+            <div class="programs">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="image/Day Care.jpg" alt="Day Care Program"><!-- fixed the image path-->
+                    </div>
+                    <div class="program-content">
+                        <h3>Day Care/Cache</h3>
+                        <p>Our day care program provides a safe, nurturing environment for young children to learn and grow through play-based activities and early development exercises.</p>
+                        <a href="academics.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                      <div class="program-image">
+                        <img src="image/Collage5.jpg" alt="Nursery School Program"><!-- fixed the image path-->
+                    </div>
+                    <div class="program-content">
+                        <h3>Nursery School</h3>
+                        <p>Our nursery school focuses on building strong foundations in literacy, numeracy, and social skills through engaging, hands-on learning experiences.</p>
+                        <a href="academics.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="image/Collage3.jpg" alt="Primary School Program"><!-- fixed the image path-->
+                    </div>
+                    <div class="program-content">
+                        <h3>Primary School</h3>
+                        <p>Our primary school program curriculum challenges students academically while providing the support they need during this critical developmental stage.</p>
+                        <a href="academics.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas Section -->
+    <section class="focus-areas">
+        <div class="focus-container">
+            <h2>Our Educational Focus Areas</h2>
+            <ul>
+                <li>Academic Excellence & Critical Thinking</li>
+                <li>Character Development & Leadership</li>
+                <li>STEM Education & Innovation</li>
+                <li>Creative Arts & Expression</li>
+                <li>Global Citizenship & Cultural Awareness</li>
+                <li>Physical Education & Wellness</li>
+            </ul>
+            <p>At Green Sprouts Academy, we empower students to gain practical skills and knowledge that prepare them for future success.</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <h2 class="section-title">School News & Events</h2>
+            <div class="news-container">
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="image/sc.jpg" alt="Science Fair Winners">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">June 15, 2023</span>
+                            <h3>Students Win Regional Science Fair</h3>
+                            <p>Three of our students took top honors at the Regional Science Fair with their innovative projects on renewable energy solutions.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="image/art.jpg" alt="student doing fine arts">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">May 28, 2023</span>
+                            <h3>New Arts Wing Opening in September</h3>
+                            <p>The state-of-the-art facility will include a 300-seat theater, digital media labs, and dedicated spaces for visual and performing arts.</p>
+                            <a href="update.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community Service">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">April 10, 2023</span>
+                            <h3>Students Complete 1000 Hours of Community Service</h3>
+                            <p>Our students have collectively contributed over 1000 hours to local community projects this academic year.</p>
+                            <a href="update.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <aside>
+                    <div class="ticker-title">
+                        <h3>Latest Announcements</h3>
+                    </div>
+                    <div class="ticker">
+                        <ul>
+                            <li><a href="#"><i class="fas fa-bullhorn"></i> Registration for 2025/26 Academic Session Now Open</a></li>
+                            <li><a href="#"><i class="fas fa-calendar-alt"></i> Parent-Teacher Conferences - August 20-22</a></li>
+                            <li><a href="#"><i class="fas fa-trophy"></i> Sports Day 2025 - november 15th</a></li>
+                            <li><a href="update.html"><i class="fas fa-graduation-cap"></i> Graduation Ceremony - October 5th</a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> New Library Hours Starting Next Week</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">What Our Community Says</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Green Sprouts Academy has provided my child with an exceptional education and a nurturing environment. The teachers are dedicated and truly care about each student's growth."</p>
+                    <p class="testimonial-author">- Mrs. Hikmat, Parent</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The holistic approach to education at GSA prepares children not just academically, but also for leadership roles in their university and beyond. I'm happy for the strong foundation GSA give to its students."</p>
+                    <p class="testimonial-author">- Iqbal Zakari, Teacher</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join Our Learning Community</h2>
+            <p>Discover how Green Sprouts Academy can help your child reach their full potential. Schedule a campus tour today and experience our exceptional learning environment.</p>
+            <a href="#" class="btn">Schedule a Tour</a>
+        </div>
+    </section>
+
+    <!-- Ticker Bar -->
+    <section class="ticker-section">
+        <div class="ticker-container">
+            <div class="ticker">
+                <ul>
+                    <li><a href="#">📢 Open House: Saturday, September 2nd, 10 AM - 2 PM</a></li>
+                    <li><a href="#">🎓 Graduation Ceremony: October 5th at 4 PM</a></li>
+                    <li><a href="#">🏆 GSA Debate Team Wins State Championship</a></li>
+                    <li><a href="#">📚 New After-School Programs Starting Next Month</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About GSA</h3>
+                    <p>Green Sprouts Academy is committed to providing quality education that develops well-rounded individuals prepared for the challenges of tomorrow.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100077998387276"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp-square"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="greensprouts academykaduna@gmail.com"><i    class="fab fa-envelope"></i></a>
+                        <a href="https://tiktok.com/@greensproutsacademy"><i    class="fab fa-book-open"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index3.html">Home</a></li>
+                        <li><a href="about2.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions 2.html">Admissions</a></li>
+                        <li><a href="update.html">News & Events
+                        </a></li>
+                        <li><a href="contact us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Day Care/Cache</a></li>
+                        <li><a href="#">Nursery School</a></li>
+                        <li><a href="#">Primary School</a></li>
+                        <li><a href="#">Summer Programs</a></li>
+                        <li><a href="#">After-School Activities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Road, Kaduna, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 8080031113</li>
+                        <li><i class="fas fa-envelope"></i> info@greensproutsacademy.edu.ng</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 2:00 PM</li>
+                        <li><i class="fas fa-google-wallet"></i>greensprouts academykaduna@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Sprouts Academy, Kaduna. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+        
+        // Initialize tickers
+        document.addEventListener('DOMContentLoaded', function() {
+            const tickers = document.querySelectorAll('.ticker');
+            tickers.forEach(ticker => {
+                const ul = ticker.querySelector('ul');
+                const lis = ul.querySelectorAll('li');
+                const itemCount = lis.length;
+                
+                // Set CSS variable for animation
+                ul.style.setProperty('--item-count', itemCount);
+                
+                // Set animation duration based on number of items
+                const duration = itemCount * 3;
+                ul.style.animation = `scrollNews ${duration}s linear infinite`;
+            });
+        });
+        
+        // Add smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

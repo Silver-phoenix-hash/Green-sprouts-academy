@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Green Sprouts Academy</title>
+    <link rel="icon" type="image/jpg" href="image/GSA LOGO.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #00B050;
+            --secondary: #556B2F;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gold: #FFD700;
+            --lime: #32CD32;
+        }
+        
+        body {
+            background-color: var(--gold);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn:hover {
+            background: #e0940d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--secondary);
+            padding-top: 20px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .academics-hero {
+            background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.9)), 
+            background-size; color:var(--gold)
+            background-position; contain: content
+            height; height: 50vh;
+            display: flex;
+            align-items: center;
+            color : white;
+            text-align : center;
+            margin-bottom : 40px;
+        }
+        
+        .academics-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .academics-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .academics-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 60px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .program-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .program-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .program-features li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .program-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Curriculum Section */
+        .curriculum {
+            padding: 60px 0;
+            background-color: #f0f7ff;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .curriculum-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .curriculum-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .curriculum-points li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #444;
+        }
+        
+        .curriculum-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        /* Faculty Section */
+        .faculty {
+            padding: 60px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .faculty-member {
+            text-align: center;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .faculty-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .faculty-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary);
+        }
+        
+        .faculty-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .faculty-member h3 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .faculty-member .position {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .faculty-member p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        /* Facilities Section */
+        .facilities {
+            padding: 60px 0;
+            background-color: #f0f7ff;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .facility-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .facility-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+        
+        .facility-content {
+            padding: 20px;
+        }
+        
+        .facility-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .facility-content p {
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column li {
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .academics-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .academics-hero {
+                height: 40vh;
+            }
+            
+            .academics-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .academics-hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .academics-hero {
+                height: 35vh;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            
+            .programs-grid,
+            .faculty-grid,
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">        
+            <div class="logo">
+               <img src="image/GSA LOGO.jpg" alt="Green Sprouts Logo">
+                </div>
+                </div>
+                <h1>GREEN SPROUTS <span>ACADEMY</span></h1>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index3.html">Home</a></li>
+                    <li><a href="about2.html">About</a></li>
+                    <li><a href="admissions 2.html">Admissions</a></li>                    
+                    <li><a href="update.html">News</a></li>
+                    <li><a href="contact us.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="academics-hero">
+        <div class="academics-hero-content">
+            <h1>Academic Programs</h1>
+            <p>Excellence in education through innovative learning approaches</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Programs Section -->
+        <section class="programs">
+            <h2 class="section-title">Our Academic Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="image/Day Care.jpg" alt="Day Care Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Day Care/Crèche</h3>
+                        <p>Our day care program provides a safe, nurturing environment for young children to learn and grow through play-based activities and early development exercises.</p>
+                        <ul class="program-features">
+                            <li>Ages 6 months - 2 years</li>
+                            <li>Play-based learning</li>
+                            <li>Early developmental activities</li>
+                            <li>Safe and nurturing environment</li>
+                        </ul>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="image/Collage5.jpg" alt="Nursery School Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Nursery School</h3>
+                        <p>Our nursery school focuses on building strong foundations in literacy, numeracy, and social skills through engaging, hands-on learning experiences.</p>
+                        <ul class="program-features">
+                            <li>Ages 3 - 5 years</li>
+                            <li>Foundational literacy & numeracy</li>
+                            <li>Social skills development</li>
+                            <li>Creative expression</li>
+                        </ul>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="image/p5.jpg" alt="Primary School Program">
+                    </div>
+                    <div class="program-content">
+                        <h3>Primary School</h3>
+                        <p>Our primary school program curriculum challenges students academically while providing the support they need during this critical developmental stage.</p>
+                        <ul class="program-features">
+                            <li>Grades 1 - 6</li>
+                            <li>Comprehensive curriculum</li>
+                            <li>Critical thinking development</li>
+                            <li>Extracurricular activities</li>
+                        </ul>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Section -->
+        <section class="curriculum">
+            <h2 class="section-title">Our Curriculum Approach</h2>
+            <div class="curriculum-content">
+                <p>At Green Sprouts Academy, we follow a holistic curriculum that balances academic excellence with character development and practical life skills. Our approach includes:</p>
+                <ul class="curriculum-points">
+                    <li>Integrated STEM education with hands-on learning experiences</li>
+                    <li>Language arts program emphasizing communication and critical thinking</li>
+                    <li>Social studies curriculum focused on global citizenship and cultural awareness</li>
+                    <li>Arts education including visual arts, music, and performing arts</li>
+                    <li>Physical education promoting health, wellness, and teamwork</li>
+                    <li>Character education program fostering integrity, responsibility, and empathy</li>
+                    <li>Technology integration across all subject areas</li>
+                    <li>Project-based learning opportunities</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Faculty Section -->
+        <section class="faculty">
+            <h2 class="section-title">Our Dedicated Faculty</h2>
+            <div class="faculty-grid">
+                <div class="faculty-member">
+                    <div class="faculty-image">
+                        <img src="image/headmistress.jpg" alt="Faculty Member">
+                    </div>
+                    <h3>Mrs. Silifat</h3>
+                    <span class="position">Head of Primary School</span>
+                    <p>20 years of experience in elementary education with a focus on literacy development.</p>
+                </div>
+                <div class="faculty-member">
+                    <div class="faculty-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Faculty Member">
+                    </div>
+                    <h3>Mr. Chukwu</h3>
+                    <span class="position">Science Department Chair</span>
+                    <p>Specializes in hands-on science education and experimental learning approaches.</p>
+                </div>
+                <div class="faculty-member">
+                    <div class="faculty-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Faculty Member">
+                    </div>
+                    <h3>Ms. Abdullahi</h3>
+                    <span class="position">Arts Coordinator</span>
+                    <p>Professional artist and educator with a passion for creative expression in children.</p>
+                </div>
+                <div class="faculty-member">
+                    <div class="faculty-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Faculty Member">
+                    </div>
+                    <h3>Mrs. Okafor</h3>
+                    <span class="position">Early Childhood Director</span>
+                    <p>Expert in early childhood development and play-based learning methodologies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section class="facilities">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Library">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Library & Media Center</h3>
+                        <p>Our state-of-the-art library features an extensive collection of books, digital resources, and collaborative learning spaces.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Science Lab">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Science Laboratories</h3>
+                        <p>Fully equipped laboratories for physics, chemistry, and biology with modern equipment and safety features.</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Arts Studio">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Arts & Music Studios</h3>
+                        <p>Dedicated spaces for visual arts, music, and performing arts with professional-grade equipment and materials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About GSA</h3>
+                    <p>Green Sprouts Academy is committed to providing quality education that develops well-rounded individuals prepared for the challenges of tomorrow.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100077998387276"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp-square"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index3.html">Home</a></li>
+                        <li><a href="about2.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions 2.html">Admissions</a></li>
+                        <li><a href="update.html">News & Events</a></li>
+                        <li><a href="contact us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Day Care/Crèche</a></li>
+                        <li><a href="#">Nursery School</a></li>
+                        <li><a href="#">Primary School</a></li>
+                        <li><a href="#">Secondary School</a></li>
+                        <li><a href="#">Summer Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Road, Kaduna, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 812 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@greensproutsacademy.edu.ng</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Green Sprouts Academy, Kaduna. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
